@@ -1,6 +1,6 @@
 export { ChatHandler, chat_names}
 
-const chat_names = ["Virat Kohli", "Kirti Gaurav", "MS Dhoni", "KL Rahul", "Suresh Raina", "Rohit Sharma", "Jasprit Bumrah"];
+const chat_names = ["Ravi Kumar", "Kirti Gaurav", "MS Dhoni", "Hari Singh Meena", "Yash Sedpure", "Saurav", "Abhay"];
 const chat_names_length = chat_names.length;
 const chat_msg = ["You'll be surprised to see my fielding today :P ",
     "I'll give my best performance in today's match.",
