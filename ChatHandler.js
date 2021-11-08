@@ -10,7 +10,9 @@ const chat_msg_length = chat_msg.length;
 const chat_img_length = 7;
 
 class ChatHandler{
-
+    
+//This Keyword: The JavaScript this keyword refers to the object it belongs to.
+    
     constructor(chat_template, chat_list){
         this.hashmap = new Map();
         this.linked_list = null;
@@ -31,8 +33,8 @@ class ChatHandler{
 
         if(this.hours === 24){
             this.hours = 0;
-        }
-
+        } 
+        // Returns the time in hours and minute format
         return ("0" + this.hours).slice(-2)+":"+("0" + this.mins).slice(-2);
     }
 
@@ -63,13 +65,19 @@ class ChatHandler{
             // If node in linked list
             node = this.getNodeFromList(id);
         }
-
+         // when linkedlist is empty and null pointing  it to the node 
         if(this.linked_list === null){
             // Setting head of empty list
             this.linked_list = node;
+           
         } else{
             // Adding node to head of linked list
+            //Pointing and updating to the next node
+            
             node['next'] = this.linked_list;
+            
+         //when not null then point and update to the previous node
+            
             if(this.linked_list!==null)
                 this.linked_list['prev'] = node;
             this.linked_list = node;
@@ -86,8 +94,8 @@ class ChatHandler{
     }
 
     getNodeFromList(id){
-        let node = this.hashmap[id];
-        let prevNode = node['prev'];
+        let node = this.hashmap[id]; // getting id from hashmap
+        let prevNode = node['prev'];  
         let nextNode = node['next'];
 
         // Update prev and next node pointers
@@ -110,17 +118,17 @@ class ChatHandler{
         let innerHTML = '';
         let head = this.linked_list;
         while(head!==null){
-            let element = head['chat_item'];
+            let element = head['chat_item']; // taking chat item from head
             if(head===this.linked_list){
-                element.className = "ks-item ks-active";
-                element.querySelector('#Time').innerText = this.getTime();
+                element.className = "ks-item ks-active";  // ks- item is rest item except top message
+                element.querySelector('#Time').innerText = this.getTime();  // updating time fo the head
             } else{
-                element.className = "ks-item";
+                element.className = "ks-item"; // ks items are rest of the items
             }
-            innerHTML += element.outerHTML;
-            head = head['next'];
+            innerHTML += element.outerHTML; // getting string of the HTML and adding to initial 
+            head = head['next'];  // moving to next node untill node becomes null
         }
-        this.chat_list.innerHTML = innerHTML;
+        this.chat_list.innerHTML = innerHTML; // then refreshed 
     }
 
 }
